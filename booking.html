@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book a Session | ROYVLTY EMPIRE</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #000;
+      color: gold;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #111;
+      padding: 20px;
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+      background-color: #1a1a1a;
+      border: 1px solid gold;
+      border-radius: 10px;
+    }
+
+    h2 {
+      color: gold;
+      margin-bottom: 10px;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid gold;
+      background-color: #000;
+      color: gold;
+      border-radius: 5px;
+    }
+
+    button {
+      margin-top: 20px;
+      background-color: gold;
+      color: black;
+      padding: 12px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      border-radius: 5px;
+    }
+
+    .pricing {
+      background-color: #000;
+      border: 1px solid gold;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .pricing ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .pricing li {
+      margin-bottom: 8px;
+    }
+
+    footer {
+      margin-top: 30px;
+      text-align: center;
+      font-size: 14px;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+
+  <header>Book a Session — ROYVLTY EMPIRE</header>
+
+  <div class="container">
+
+    <div class="pricing">
+      <h2>Studio Pricing</h2>
+      <ul>
+        <li>$50/hour (minimum 2 hours) — Recording (Mixing included)</li>
+        <li>$100/song (mobile studio) — Mix & Master included (3hr minimum)</li>
+        <li>$50/song — Mastering Only</li>
+        <li>$75/song — Mix & Master Only (24hr turnaround)</li>
+      </ul>
+      <p>All sessions require a 10–50% deposit.</p>
+    </div>
+
+    <form>
+      <label for="service">Service Type:</label>
+      <select id="service" name="service">
+        <option value="studio">Book Studio Session</option>
+        <option value="mobile">Mobile Studio (We Come to You)</option>
+        <option value="mixing">Mixing & Mastering Only</option>
+        <option value="mastering">Mastering Only</option>
+      </select>
+
+      <label for="duration">Session Duration (if booking session):</label>
+      <select id="duration" name="duration">
+        <option value="2">2 hours - $100</option>
+        <option value="3">3 hours - $150</option>
+        <option value="4">4 hours - $200</option>
+        <option value="5">5 hours - $250</option>
+        <option value="6">6 hours - $300</option>
+      </select>
+
+      <label for="date">Preferred Date:</label>
+      <input type="date" id="date" name="date" />
+
+      <label for="time">Preferred Time:</label>
+      <input type="time" id="time" name="time" />
+
+      <label for="name">Your Full Name:</label>
+      <input type="text" id="name" name="name" placeholder="Enter your name" />
+
+      <label for="email">Your Email Address:</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" />
+
+      <label for="notes">Additional Notes (optional):</label>
+      <textarea id="notes" name="notes" rows="4" placeholder="Let us know anything special..."></textarea>
+
+      <button type="submit">Submit Booking Request</button>
+    </form>
+
+    <footer>
+      Need help? Contact us at <a href="mailto:royvltylife@gmail.com" style="color:gold;">royvltylife@gmail.com</a>
+    </footer>
+
+  </div>
+
+</body>
+</html>
