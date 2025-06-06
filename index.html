@@ -5,198 +5,71 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ROYVLTY EMPIRE</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins&display=swap');
-    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      background: #0a0a0a;
-      color: #d4af37;
-      font-family: 'Poppins', sans-serif;
-      line-height: 1.6;
+      background: black;
+      color: gold;
+      font-family: Arial, sans-serif;
+      padding: 20px;
     }
-    a { color: #ffd700; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    .container {
-      width: 90%;
-      max-width: 1100px;
-      margin: auto;
-      padding: 2rem 0;
+    h1, h2 {
+      color: gold;
     }
-
-    header {
-      text-align: center;
-      padding-bottom: 2rem;
-      border-bottom: 2px solid #d4af37;
+    section {
+      margin-bottom: 30px;
     }
-    header h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 3rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      text-shadow: 0 0 10px #d4af37, 0 0 20px #ffd700;
-    }
-    header p {
-      font-style: italic;
-      font-size: 1.25rem;
-      margin-top: 0.5rem;
-      color: #f5e1a4;
-    }
-
-    .logo {
-      width: 120px;
-      height: 120px;
-      margin: 1rem auto;
-      border-radius: 50%;
-      background: linear-gradient(45deg, #d4af37, #ffd700);
-      box-shadow: 0 0 20px #ffd700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: #0a0a0a;
-    }
-
-    h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      margin: 2rem 0 1rem;
-      border-bottom: 2px solid #d4af37;
-      padding-bottom: 0.25rem;
-      text-shadow: 0 0 5px #d4af37;
-    }
-
-    .services, .pricing {
-      background: #1a1a1a;
-      padding: 1rem 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 0 15px #d4af37;
-    }
-    .services ul, .pricing ul {
-      list-style-type: none;
-    }
-    .services li, .pricing li {
-      margin-bottom: 0.75rem;
-      font-weight: 600;
-    }
-    .services li span.price, .pricing li span.price {
-      float: right;
-      color: #ffd700;
-      font-weight: 700;
-    }
-
     .btn-book {
+      background-color: gold;
+      color: black;
+      padding: 10px 20px;
       display: inline-block;
-      background: linear-gradient(90deg, #d4af37, #ffd700);
-      color: #0a0a0a;
-      padding: 1rem 2rem;
-      font-weight: 700;
-      font-family: 'Playfair Display', serif;
-      font-size: 1.25rem;
-      border-radius: 30px;
-      box-shadow: 0 0 15px #ffd700;
-      margin-top: 2rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-align: center;
-    }
-    .btn-book:hover {
-      background: #ffd700;
-      box-shadow: 0 0 25px #fff;
-      color: #0a0a0a;
-    }
-
-    .contact {
-      background: #1a1a1a;
-      margin-top: 3rem;
-      padding: 1.5rem 2rem;
-      border-radius: 12px;
-      box-shadow: 0 0 15px #d4af37;
-      text-align: center;
-    }
-    .contact p {
-      font-size: 1.2rem;
-      margin-bottom: 1rem;
-    }
-    .contact a.email {
-      color: #ffd700;
-      font-weight: 700;
-      font-size: 1.2rem;
-    }
-
-    .social {
-      margin-top: 1rem;
+      margin: 10px 0;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 5px;
     }
     .social a {
-      margin: 0 1rem;
-      font-size: 2rem;
-      color: #d4af37;
-      transition: color 0.3s ease;
-    }
-    .social a:hover {
-      color: #fff;
-      text-shadow: 0 0 10px #ffd700;
-    }
-
-    footer {
-      text-align: center;
-      padding: 1rem;
-      margin-top: 3rem;
-      font-size: 0.9rem;
-      color: #666;
+      display: block;
+      color: gold;
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="logo">RE</div>
-    <h1>ROYVLTY EMPIRE</h1>
-    <p>Studio | Artist Development | Management | Promotion</p>
-  </header>
-
-  <main class="container">
+  <main>
     <section class="services">
       <h2>Studio Services</h2>
-      <ul>
-        <li>In-Studio Recording <span class="price">$50/hr (2 hr min)</span></li>
-        <li>Mixing included</li>
-        <li>Mastering Services <span class="price">$50/song</span></li>
-        <li>Mobile Studio (We Come to You) <span class="price">$100/song (3 hr min)</span></li>
-        <li>Mixing & Mastering (24 hr turnaround) <span class="price">$75/song</span></li>
-      </ul>
-      <h3>Booking Policy</h3>
-      <ul>
-        <li>Deposit 10%–50% required to confirm booking</li>
-        <li>Remaining balance due at session</li>
-        <li>Deposits are non-refundable within 24 hours</li>
-      </ul>
-      <a href="#booking" class="btn-book">Book a Session</a>
+      <p>$50/hr recording (2 hour min, mixing included). Mastering is separate.</p>
+      <p>Mobile studio: $100 per song (3-hour min, mix & master included).</p>
+      <p>Mastering: $50/song.</p>
+      <p>Mix & Master only: $75/song — 24 hour turnaround.</p>
     </section>
 
     <section class="services">
-      <h2>Artist Development & Management</h2>
-      <p>We build out tailored plans based on your goals. Let's build your brand together — contact us for details.</p>
+      <h2>Artist Development Packages</h2>
+      <p>Packages based on artist needs. <strong>Contact us for details.</strong></p>
     </section>
 
     <section class="services">
       <h2>Promotion Packages</h2>
-      <p>Custom music and social media promotion — including streaming, playlisting, TikTok and IG strategy. Contact us to learn more.</p>
+      <p>Custom music and social media promotion – <strong>Contact for details.</strong></p>
     </section>
 
     <section class="services">
       <h2>Artist House Experience</h2>
-      <p>Access a private studio, your engineer, and full team management at your convenience during your stay. Contact for pricing and dates.</p>
+      <p>Access a private studio, your engineer, and full team support while in the Artist House.</p>
     </section>
 
     <section class="contact" id="booking">
       <h2>Contact & Booking</h2>
-      <a href="booking.html">Book a Session</a>
-      <p>Email: <a href="mailto:royvltylife@gmail.com" class="email">royvltylife@gmail.com</a></p>
-      <a href="mailto:royvltylife@gmail.com" class="btn-book">Contact / Book Now</a>
+
+      <!-- ✅ New Book Session Button -->
+      <p>
+        <a href="booking.html" class="btn-book">🎧 Book a Studio Session</a>
+      </p>
+
+      <p>Email: <a href="mailto:royvltylife@gmail.com" class="email-link">royvltylife@gmail.com</a></p>
       <div class="social">
-        <a href="https://www.instagram.com/royvltyempire25" target="_blank">📸</a>
-        <a href="https://www.youtube.com/@royvltyempire1512" target="_blank">▶️</a>
+        <a href="https://www.instagram.com/royvltyempire25" target="_blank">Instagram</a>
+        <a href="https://www.youtube.com/@royvltyempire1512" target="_blank">YouTube</a>
       </div>
     </section>
   </main>
