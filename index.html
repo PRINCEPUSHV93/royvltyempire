@@ -3,139 +3,205 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Book a Session – ROYVLTY EMPIRE</title>
+  <title>ROYVLTY EMPIRE</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins&display=swap');
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      background: black;
-      color: gold;
-      font-family: Arial, sans-serif;
-      padding: 20px;
+      background: #0a0a0a;
+      color: #d4af37;
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
     }
-    label, select, input, textarea {
-      display: block;
-      margin-top: 10px;
-      width: 100%;
-      padding: 8px;
+    a { color: #ffd700; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: auto;
+      padding: 2rem 0;
     }
-    button {
-      margin-top: 20px;
-      background-color: gold;
-      color: black;
-      padding: 10px 20px;
-      font-weight: bold;
-      border: none;
+
+    header {
+      text-align: center;
+      padding-bottom: 2rem;
+      border-bottom: 2px solid #d4af37;
+    }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-shadow: 0 0 10px #d4af37, 0 0 20px #ffd700;
+    }
+    header p {
+      font-style: italic;
+      font-size: 1.25rem;
+      margin-top: 0.5rem;
+      color: #f5e1a4;
+    }
+
+    .logo {
+      width: 120px;
+      height: 120px;
+      margin: 1rem auto;
+      border-radius: 50%;
+      background: linear-gradient(45deg, #d4af37, #ffd700);
+      box-shadow: 0 0 20px #ffd700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #0a0a0a;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin: 2rem 0 1rem;
+      border-bottom: 2px solid #d4af37;
+      padding-bottom: 0.25rem;
+      text-shadow: 0 0 5px #d4af37;
+    }
+
+    .services, .pricing {
+      background: #1a1a1a;
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 0 15px #d4af37;
+    }
+    .services ul, .pricing ul {
+      list-style-type: none;
+    }
+    .services li, .pricing li {
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+    }
+    .services li span.price, .pricing li span.price {
+      float: right;
+      color: #ffd700;
+      font-weight: 700;
+    }
+
+    .btn-book {
+      display: inline-block;
+      background: linear-gradient(90deg, #d4af37, #ffd700);
+      color: #0a0a0a;
+      padding: 1rem 2rem;
+      font-weight: 700;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      border-radius: 30px;
+      box-shadow: 0 0 15px #ffd700;
+      margin-top: 2rem;
       cursor: pointer;
-      border-radius: 5px;
+      transition: all 0.3s ease;
+      text-align: center;
     }
-    small {
-      display: block;
-      margin-top: 4px;
-      color: #ccc;
+    .btn-book:hover {
+      background: #ffd700;
+      box-shadow: 0 0 25px #fff;
+      color: #0a0a0a;
+    }
+
+    .contact {
+      background: #1a1a1a;
+      margin-top: 3rem;
+      padding: 1.5rem 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 15px #d4af37;
+      text-align: center;
+    }
+    .contact p {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+    .contact a.email {
+      color: #ffd700;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    .social {
+      margin-top: 1rem;
+    }
+    .social a {
+      margin: 0 1rem;
+      font-size: 2rem;
+      color: #d4af37;
+      transition: color 0.3s ease;
+    }
+    .social a:hover {
+      color: #fff;
+      text-shadow: 0 0 10px #ffd700;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: #666;
     }
   </style>
 </head>
 <body>
-  <h1>Book a Studio Session</h1>
+  <header>
+    <div class="logo">RE</div>
+    <h1>ROYVLTY EMPIRE</h1>
+    <p>Studio | Artist Development | Management | Promotion</p>
+  </header>
 
-  <form action="https://formsubmit.co/royvltylife@gmail.com" method="POST">
-    <label for="name">Full Name</label>
-    <input type="text" name="name" required />
+  <main class="container">
+    <section class="services">
+      <h2>Studio Services</h2>
+      <ul>
+        <li>In-Studio Recording <span class="price">$50/hr (2 hr min)</span></li>
+        <li>Mixing included</li>
+        <li>Mastering Services <span class="price">$50/song</span></li>
+        <li>Mobile Studio (We Come to You) <span class="price">$100/song (3 hr min)</span></li>
+        <li>Mixing & Mastering (24 hr turnaround) <span class="price">$75/song</span></li>
+      </ul>
+      <h3>Booking Policy</h3>
+      <ul>
+        <li>Deposit 10%–50% required to confirm booking</li>
+        <li>Remaining balance due at session</li>
+        <li>Deposits are non-refundable within 24 hours</li>
+      </ul>
+      <a href="#booking" class="btn-book">Book a Session</a>
+    </section>
 
-    <label for="email">Email Address</label>
-    <input type="email" name="email" required />
+    <section class="services">
+      <h2>Artist Development & Management</h2>
+      <p>We build out tailored plans based on your goals. Let's build your brand together — contact us for details.</p>
+    </section>
 
-    <label for="service">Choose Service</label>
-    <select name="service" id="service" required>
-      <option value="">-- Select --</option>
-      <option value="In-Studio">In-Studio Session</option>
-      <option value="Mobile Studio">Mobile Studio</option>
-      <option value="Mix & Master Only">Mix & Master Only</option>
-      <option value="Mastering Only">Mastering Only</option>
-    </select>
+    <section class="services">
+      <h2>Promotion Packages</h2>
+      <p>Custom music and social media promotion — including streaming, playlisting, TikTok and IG strategy. Contact us to learn more.</p>
+    </section>
 
-    <!-- Mobile Studio Location -->
-    <div id="locationField" style="display:none;">
-      <label for="location">Location</label>
-      <select name="location" id="location">
-        <option value="">-- Select Location --</option>
-        <option value="Florida">Florida</option>
-        <option value="Georgia">Georgia</option>
-        <option value="Other">Other</option>
-      </select>
-    </div>
+    <section class="services">
+      <h2>Artist House Experience</h2>
+      <p>Access a private studio, your engineer, and full team management at your convenience during your stay. Contact for pricing and dates.</p>
+    </section>
 
-    <!-- In-Studio Duration -->
-    <div id="durationField">
-      <label for="duration">Session Duration (Hours)</label>
-      <select name="duration" id="duration">
-        <option value="">-- Select Duration --</option>
-        <option value="2">2 Hours</option>
-        <option value="3">3 Hours</option>
-        <option value="4">4 Hours</option>
-        <option value="5">5 Hours</option>
-        <option value="6">6 Hours</option>
-      </select>
-    </div>
+    <section class="contact" id="booking">
+      <h2>Contact & Booking</h2>
+      <p>Email: <a href="mailto:royvltylife@gmail.com" class="email">royvltylife@gmail.com</a></p>
+      <a href="mailto:royvltylife@gmail.com" class="btn-book">Contact / Book Now</a>
+      <div class="social">
+        <a href="https://www.instagram.com/royvltyempire25" target="_blank">📸</a>
+        <a href="https://www.youtube.com/@royvltyempire1512" target="_blank">▶️</a>
+      </div>
+    </section>
+  </main>
 
-    <!-- Mobile Studio Song Count (Florida Only) -->
-    <div id="songCountField" style="display:none;">
-      <label for="songCount">Number of Songs</label>
-      <input type="number" name="songCount" min="1" />
-      <small>$100 per song, Mix & Master included</small>
-    </div>
-
-    <!-- Mobile Studio Days Needed (Outside FL) -->
-    <div id="dayCountField" style="display:none;">
-      <label for="dayCount">How Many Days of Service?</label>
-      <input type="number" name="dayCount" min="1" />
-      <small>$300 per day. Engineering for other artists will be discussed before the date is set.</small>
-    </div>
-
-    <label for="date">Preferred Date</label>
-    <input type="date" name="date" required />
-
-    <label for="message">Additional Notes</label>
-    <textarea name="message" rows="4"></textarea>
-
-    <button type="submit">Submit Booking</button>
-  </form>
-
-  <script>
-    const serviceSelect = document.getElementById("service");
-    const locationField = document.getElementById("locationField");
-    const locationSelect = document.getElementById("location");
-    const durationField = document.getElementById("durationField");
-    const songCountField = document.getElementById("songCountField");
-    const dayCountField = document.getElementById("dayCountField");
-
-    serviceSelect.addEventListener("change", () => {
-      const selected = serviceSelect.value;
-
-      if (selected === "Mobile Studio") {
-        locationField.style.display = "block";
-        durationField.style.display = "none";
-      } else {
-        locationField.style.display = "none";
-        songCountField.style.display = "none";
-        dayCountField.style.display = "none";
-        durationField.style.display = "block";
-      }
-    });
-
-    locationSelect.addEventListener("change", () => {
-      const loc = locationSelect.value;
-
-      if (loc === "Florida") {
-        songCountField.style.display = "block";
-        dayCountField.style.display = "none";
-      } else if (loc === "Georgia" || loc === "Other") {
-        songCountField.style.display = "none";
-        dayCountField.style.display = "block";
-      } else {
-        songCountField.style.display = "none";
-        dayCountField.style.display = "none";
-      }
-    });
-  </script>
+  <footer>
+    &copy; 2025 ROYVLTY EMPIRE. All rights reserved.
+  </footer>
 </body>
 </html>
