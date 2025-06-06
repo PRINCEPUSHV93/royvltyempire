@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ROYVLTY EMPIRE</title>
+  <title>Book a Session – ROYVLTY EMPIRE</title>
   <style>
     body {
       background: black;
@@ -11,71 +11,131 @@
       font-family: Arial, sans-serif;
       padding: 20px;
     }
-    h1, h2 {
-      color: gold;
+    label, select, input, textarea {
+      display: block;
+      margin-top: 10px;
+      width: 100%;
+      padding: 8px;
     }
-    section {
-      margin-bottom: 30px;
-    }
-    .btn-book {
+    button {
+      margin-top: 20px;
       background-color: gold;
       color: black;
       padding: 10px 20px;
-      display: inline-block;
-      margin: 10px 0;
       font-weight: bold;
-      text-decoration: none;
+      border: none;
+      cursor: pointer;
       border-radius: 5px;
     }
-    .social a {
+    small {
       display: block;
-      color: gold;
+      margin-top: 4px;
+      color: #ccc;
     }
   </style>
 </head>
 <body>
-  <main>
-    <section class="services">
-      <h2>Studio Services</h2>
-      <p>$50/hr recording (2 hour min, mixing included). Mastering is separate.</p>
-      <p>Mobile studio: $100 per song (3-hour min, mix & master included).</p>
-      <p>Mastering: $50/song.</p>
-      <p>Mix & Master only: $75/song — 24 hour turnaround.</p>
-    </section>
+  <h1>Book a Studio Session</h1>
 
-    <section class="services">
-      <h2>Artist Development Packages</h2>
-      <p>Packages based on artist needs. <strong>Contact us for details.</strong></p>
-    </section>
+  <form action="https://formsubmit.co/royvltylife@gmail.com" method="POST">
+    <label for="name">Full Name</label>
+    <input type="text" name="name" required />
 
-    <section class="services">
-      <h2>Promotion Packages</h2>
-      <p>Custom music and social media promotion – <strong>Contact for details.</strong></p>
-    </section>
+    <label for="email">Email Address</label>
+    <input type="email" name="email" required />
 
-    <section class="services">
-      <h2>Artist House Experience</h2>
-      <p>Access a private studio, your engineer, and full team support while in the Artist House.</p>
-    </section>
+    <label for="service">Choose Service</label>
+    <select name="service" id="service" required>
+      <option value="">-- Select --</option>
+      <option value="In-Studio">In-Studio Session</option>
+      <option value="Mobile Studio">Mobile Studio</option>
+      <option value="Mix & Master Only">Mix & Master Only</option>
+      <option value="Mastering Only">Mastering Only</option>
+    </select>
 
-    <section class="contact" id="booking">
-      <h2>Contact & Booking</h2>
+    <!-- Mobile Studio Location -->
+    <div id="locationField" style="display:none;">
+      <label for="location">Location</label>
+      <select name="location" id="location">
+        <option value="">-- Select Location --</option>
+        <option value="Florida">Florida</option>
+        <option value="Georgia">Georgia</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
 
-      <!-- ✅ New Book Session Button -->
-      <p>
-        <a href="booking.html" class="btn-book">🎧 Book a Studio Session</a>
-      </p>
+    <!-- In-Studio Duration -->
+    <div id="durationField">
+      <label for="duration">Session Duration (Hours)</label>
+      <select name="duration" id="duration">
+        <option value="">-- Select Duration --</option>
+        <option value="2">2 Hours</option>
+        <option value="3">3 Hours</option>
+        <option value="4">4 Hours</option>
+        <option value="5">5 Hours</option>
+        <option value="6">6 Hours</option>
+      </select>
+    </div>
 
-      <p>Email: <a href="mailto:royvltylife@gmail.com" class="email-link">royvltylife@gmail.com</a></p>
-      <div class="social">
-        <a href="https://www.instagram.com/royvltyempire25" target="_blank">Instagram</a>
-        <a href="https://www.youtube.com/@royvltyempire1512" target="_blank">YouTube</a>
-      </div>
-    </section>
-  </main>
+    <!-- Mobile Studio Song Count (Florida Only) -->
+    <div id="songCountField" style="display:none;">
+      <label for="songCount">Number of Songs</label>
+      <input type="number" name="songCount" min="1" />
+      <small>$100 per song, Mix & Master included</small>
+    </div>
 
-  <footer>
-    &copy; 2025 ROYVLTY EMPIRE. All rights reserved.
-  </footer>
+    <!-- Mobile Studio Days Needed (Outside FL) -->
+    <div id="dayCountField" style="display:none;">
+      <label for="dayCount">How Many Days of Service?</label>
+      <input type="number" name="dayCount" min="1" />
+      <small>$300 per day. Engineering for other artists will be discussed before the date is set.</small>
+    </div>
+
+    <label for="date">Preferred Date</label>
+    <input type="date" name="date" required />
+
+    <label for="message">Additional Notes</label>
+    <textarea name="message" rows="4"></textarea>
+
+    <button type="submit">Submit Booking</button>
+  </form>
+
+  <script>
+    const serviceSelect = document.getElementById("service");
+    const locationField = document.getElementById("locationField");
+    const locationSelect = document.getElementById("location");
+    const durationField = document.getElementById("durationField");
+    const songCountField = document.getElementById("songCountField");
+    const dayCountField = document.getElementById("dayCountField");
+
+    serviceSelect.addEventListener("change", () => {
+      const selected = serviceSelect.value;
+
+      if (selected === "Mobile Studio") {
+        locationField.style.display = "block";
+        durationField.style.display = "none";
+      } else {
+        locationField.style.display = "none";
+        songCountField.style.display = "none";
+        dayCountField.style.display = "none";
+        durationField.style.display = "block";
+      }
+    });
+
+    locationSelect.addEventListener("change", () => {
+      const loc = locationSelect.value;
+
+      if (loc === "Florida") {
+        songCountField.style.display = "block";
+        dayCountField.style.display = "none";
+      } else if (loc === "Georgia" || loc === "Other") {
+        songCountField.style.display = "none";
+        dayCountField.style.display = "block";
+      } else {
+        songCountField.style.display = "none";
+        dayCountField.style.display = "none";
+      }
+    });
+  </script>
 </body>
 </html>
