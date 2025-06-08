@@ -1,239 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Book a Session – ROYVLTY EMPIRE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book a Session - ROYVLTY EMPIRE</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
     body {
-      background: black;
-      color: gold;
-      font-family: Arial, sans-serif;
+      background: url('studio-background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       padding: 20px;
     }
-    label, select, input, textarea {
-      display: block;
-      margin-top: 10px;
-      width: 100%;
-      padding: 8px;
-    }
-    button {
+
+    .logo {
       margin-top: 20px;
-      background-color: gold;
-      color: black;
-      padding: 10px 20px;
-      font-weight: bold;
-      border: none;
-      cursor: pointer;
-      border-radius: 5px;
+      width: 120px;
     }
-    small {
-      display: block;
-      margin-top: 4px;
+
+    .content {
+      background-color: rgba(0, 0, 0, 0.75);
+      padding: 20px;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 700px;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    h1 {
+      font-size: 28px;
+      color: #f1c40f;
+      margin-bottom: 20px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label, select, input, textarea {
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    input[type="submit"] {
+      background-color: #0c59f2;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #0841b6;
+    }
+
+    .footer {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 14px;
       color: #ccc;
     }
   </style>
-</head>
-<body>
-  <h1>Book a Studio Session</h1>
-
-  <form action="https://formsubmit.co/royvltylife@gmail.com" method="POST">
-    <label for="name">Full Name</label>
-    <input type="text" name="name" required />
-
-    <label for="email">Email Address</label>
-    <input type="email" name="email" required />
-
-    <label for="service">Choose Service</label>
-    <select name="service" id="service" required>
-      <option value="">-- Select Service --</option>
-      <option value="In-Studio">In-Studio Session</option>
-      <option value="Mobile Studio">Mobile Studio</option>
-      <option value="Mix & Master">Mix & Master Only</option>
-      <option value="Mastering Only">Mastering Only</option>
-    </select>
-
-    <!-- In-Studio Options -->
-    <div id="inStudioOptions" style="display:none;">
-      <label for="studioDuration">Session Duration (Hours & Price)</label>
-      <select name="studioDuration" id="studioDuration">
-        <option value="">-- Select Duration --</option>
-        <option value="2">2 Hours – $100</option>
-        <option value="3">3 Hours – $150</option>
-        <option value="4">4 Hours – $200</option>
-        <option value="5">5 Hours – $250</option>
-        <option value="6">6 Hours – $300</option>
-      </select>
-
-      <label for="studioTime">Preferred Time</label>
-      <input type="time" name="studioTime" id="studioTime" />
-
-      <label for="guests">Number of Guests</label>
-      <input type="number" name="guests" id="guests" min="0" />
-    </div>
-
-    <!-- Mobile Studio Location -->
-    <div id="locationField" style="display:none;">
-      <label for="location">Location (State)</label>
-      <select name="location" id="location">
-        <option value="">-- Select State --</option>
-        <option value="Alabama">Alabama</option>
-        <option value="Alaska">Alaska</option>
-        <option value="Arizona">Arizona</option>
-        <option value="Arkansas">Arkansas</option>
-        <option value="California">California</option>
-        <option value="Colorado">Colorado</option>
-        <option value="Connecticut">Connecticut</option>
-        <option value="Delaware">Delaware</option>
-        <option value="Florida">Florida</option>
-        <option value="Georgia">Georgia</option>
-        <option value="Hawaii">Hawaii</option>
-        <option value="Idaho">Idaho</option>
-        <option value="Illinois">Illinois</option>
-        <option value="Indiana">Indiana</option>
-        <option value="Iowa">Iowa</option>
-        <option value="Kansas">Kansas</option>
-        <option value="Kentucky">Kentucky</option>
-        <option value="Louisiana">Louisiana</option>
-        <option value="Maine">Maine</option>
-        <option value="Maryland">Maryland</option>
-        <option value="Massachusetts">Massachusetts</option>
-        <option value="Michigan">Michigan</option>
-        <option value="Minnesota">Minnesota</option>
-        <option value="Mississippi">Mississippi</option>
-        <option value="Missouri">Missouri</option>
-        <option value="Montana">Montana</option>
-        <option value="Nebraska">Nebraska</option>
-        <option value="Nevada">Nevada</option>
-        <option value="New Hampshire">New Hampshire</option>
-        <option value="New Jersey">New Jersey</option>
-        <option value="New Mexico">New Mexico</option>
-        <option value="New York">New York</option>
-        <option value="North Carolina">North Carolina</option>
-        <option value="North Dakota">North Dakota</option>
-        <option value="Ohio">Ohio</option>
-        <option value="Oklahoma">Oklahoma</option>
-        <option value="Oregon">Oregon</option>
-        <option value="Pennsylvania">Pennsylvania</option>
-        <option value="Rhode Island">Rhode Island</option>
-        <option value="South Carolina">South Carolina</option>
-        <option value="South Dakota">South Dakota</option>
-        <option value="Tennessee">Tennessee</option>
-        <option value="Texas">Texas</option>
-        <option value="Utah">Utah</option>
-        <option value="Vermont">Vermont</option>
-        <option value="Virginia">Virginia</option>
-        <option value="Washington">Washington</option>
-        <option value="Washington DC">Washington DC</option>
-        <option value="West Virginia">West Virginia</option>
-        <option value="Wisconsin">Wisconsin</option>
-        <option value="Wyoming">Wyoming</option>
-      </select>
-    </div>
-
-    <!-- Mobile Studio Song Count (Florida Only) -->
-    <div id="songCountField" style="display:none;">
-      <label for="songCount">Select Number of Songs</label>
-      <select name="songCount" id="songCount">
-        <option value="">-- Select # of Songs --</option>
-        <option value="1">1 Song – $100</option>
-        <option value="2">2 Songs – $200</option>
-        <option value="3">3 Songs – $300</option>
-        <option value="4">4 Songs – $400</option>
-        <option value="5">5 Songs – $500</option>
-        <option value="6">6 Songs – $600</option>
-      </select>
-      <small>Mix & Master included</small>
-    </div>
-
-    <!-- Mobile Studio Days Needed (Outside FL) -->
-    <div id="dayCountField" style="display:none;">
-      <label for="dayCount">Select Number of Days</label>
-      <select name="dayCount" id="dayCount">
-        <option value="">-- Select # of Days --</option>
-        <option value="1">1 Day – $300</option>
-        <option value="2">2 Days – $600</option>
-        <option value="3">3 Days – $900</option>
-        <option value="4">4 Days – $1200</option>
-        <option value="5">5 Days – $1500</option>
-      </select>
-      <small>Engineering for other artists will be discussed before date.</small>
-    </div>
-
-    <!-- Mix & Master Only -->
-    <div id="mixMasterField" style="display:none;">
-      <label for="mixMasterSongs">Select Number of Songs (Mix & Master)</label>
-      <select name="mixMasterSongs" id="mixMasterSongs">
-        <option value="">-- Select # of Songs --</option>
-        <option value="1">1 Song – $75</option>
-        <option value="2">2 Songs – $150</option>
-        <option value="3">3 Songs – $225</option>
-        <option value="4">4 Songs – $300</option>
-        <option value="5">5 Songs – $375</option>
-      </select>
-      <small>24-hour turnaround</small>
-    </div>
-
-    <!-- Mastering Only -->
-    <div id="masterOnlyField" style="display:none;">
-      <label for="masterSongs">Select Number of Songs (Mastering Only)</label>
-      <select name="masterSongs" id="masterSongs">
-        <option value="">-- Select # of Songs --</option>
-        <option value="1">1 Song – $50</option>
-        <option value="2">2 Songs – $100</option>
-        <option value="3">3 Songs – $150</option>
-        <option value="4">4 Songs – $200</option>
-        <option value="5">5 Songs – $250</option>
-      </select>
-    </div>
-
-    <label for="date">Preferred Date</label>
-    <input type="date" name="date" required />
-
-    <label for="message">Additional Notes</label>
-    <textarea name="message" rows="4"></textarea>
-
-    <button type="submit">Submit Booking</button>
-  </form>
-
   <script>
-    const serviceSelect = document.getElementById("service");
-    const locationField = document.getElementById("locationField");
-    const locationSelect = document.getElementById("location");
-    const inStudioOptions = document.getElementById("inStudioOptions");
-    const songCountField = document.getElementById("songCountField");
-    const dayCountField = document.getElementById("dayCountField");
-    const mixMasterField = document.getElementById("mixMasterField");
-    const masterOnlyField = document.getElementById("masterOnlyField");
-
-    serviceSelect.addEventListener("change", () => {
-      const selected = serviceSelect.value;
-
-      inStudioOptions.style.display = selected === "In-Studio" ? "block" : "none";
-      locationField.style.display = selected === "Mobile Studio" ? "block" : "none";
-      songCountField.style.display = "none";
-      dayCountField.style.display = "none";
-      mixMasterField.style.display = selected === "Mix & Master" ? "block" : "none";
-      masterOnlyField.style.display = selected === "Mastering Only" ? "block" : "none";
-    });
-
-    locationSelect.addEventListener("change", () => {
-      const loc = locationSelect.value;
-      const selected = serviceSelect.value;
-
-      if (selected === "Mobile Studio") {
-        if (loc === "Florida") {
-          songCountField.style.display = "block";
-          dayCountField.style.display = "none";
-        } else if (loc !== "") {
-          songCountField.style.display = "none";
-          dayCountField.style.display = "block";
-        } else {
-          songCountField.style.display = "none";
-          dayCountField.style.display = "none";
-        }
+    function updateForm() {
+      const service = document.getElementById('service').value;
+      document.querySelectorAll('.conditional').forEach(el => el.style.display = 'none');
+      if (service === 'in-studio') {
+        document.getElementById('studio-options').style.display = 'block';
+      } else if (service === 'mobile-florida') {
+        document.getElementById('mobile-florida-options').style.display = 'block';
+      } else if (service === 'mobile-other') {
+        document.getElementById('mobile-other-options').style.display = 'block';
+      } else if (service === 'mix-master') {
+        document.getElementById('mix-master-options').style.display = 'block';
+      } else if (service === 'master-only') {
+        document.getElementById('master-options').style.display = 'block';
       }
-    });
+    }
   </script>
+</head>
+
+<body>
+  <img src="re-logo.png" alt="ROYVLTY Logo" class="logo">
+
+  <div class="content">
+    <h1>Book a Session</h1>
+    <form action="https://formsubmit.co/royvltylife@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="New Booking Request">
+      <input type="hidden" name="_autoresponse" value="Thank you for booking with ROYVLTY EMPIRE! We will contact you soon.">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+
+      <label for="service">Select a Service</label>
+      <select id="service" name="service" onchange="updateForm()" required>
+        <option value="">-- Choose --</option>
+        <option value="in-studio">In-Studio Session</option>
+        <option value="mobile-florida">Mobile Studio (Florida)</option>
+        <option value="mobile-other">Mobile Studio (Out of State)</option>
+        <option value="mix-master">Mixing & Mastering Only</option>
+        <option value="master-only">Mastering Only</option>
+      </select>
+
+      <div id="studio-options" class="conditional" style="display:none">
+        <label>Session Duration</label>
+        <select name="duration">
+          <option value="2hr - $100">2 Hours - $100</option>
+          <option value="4hr - $200">4 Hours - $200</option>
+          <option value="6hr - $300">6 Hours - $300</option>
+        </select>
+        <input type="datetime-local" name="datetime">
+        <input type="number" name="guests" placeholder="Number of Guests">
+      </div>
+
+      <div id="mobile-florida-options" class="conditional" style="display:none">
+        <label>City/Location in Florida</label>
+        <input type="text" name="florida-location" placeholder="City or Area">
+        <label>Number of Songs ($100/song)</label>
+        <input type="number" name="songs-florida" min="1">
+      </div>
+
+      <div id="mobile-other-options" class="conditional" style="display:none">
+        <label>Select State</label>
+        <select name="state">
+          <option>Georgia</option>
+          <option>Alabama</option>
+          <option>Texas</option>
+          <option>New York</option>
+          <option>California</option>
+          <option>Illinois</option>
+          <option>Other</option>
+        </select>
+        <label>Number of Days ($300/day)</label>
+        <input type="number" name="days" min="1">
+        <label>Will you require engineering services?</label>
+        <select name="engineer">
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+
+      <div id="mix-master-options" class="conditional" style="display:none">
+        <label>Number of Songs ($75/song)</label>
+        <input type="number" name="mixmaster-songs" min="1">
+      </div>
+
+      <div id="master-options" class="conditional" style="display:none">
+        <label>Number of Songs ($50/song)</label>
+        <input type="number" name="master-songs" min="1">
+      </div>
+
+      <textarea name="message" rows="4" placeholder="Additional Details..."></textarea>
+      <input type="submit" value="Submit Booking">
+    </form>
+  </div>
+
+  <div class="footer">
+    &copy; 2025 ROYVLTY EMPIRE Music Group. All rights reserved.
+  </div>
 </body>
+
 </html>
