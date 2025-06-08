@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book a Session – ROYVLTY EMPIRE</title>
+  <style>
+    body {
+      background: url('studio-background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #fff;
+      text-align: center;
+    }
+    .container {
+      background-color: rgba(0, 0, 0, 0.8);
+      margin: 50px auto;
+      padding: 40px;
+      max-width: 800px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px gold;
+    }
+    h1 {
+      color: gold;
+      margin-bottom: 20px;
+    }
+    label, select, input {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 8px;
+    }
+    select, input {
+      border: none;
+    }
+    button {
+      background-color: gold;
+      color: black;
+      font-weight: bold;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    .logo {
+      width: 100px;
+      margin-bottom: 20px;
+    }
+    #totalDisplay {
+      font-size: 20px;
+      color: gold;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="logo.jpg" alt="ROYVLTY Logo" class="logo" />
+    <h1>Book Your Session</h1>
+    <form id="bookingForm">
+      <label for="service">Select Service</label>
+      <select id="service" name="item_name">
+        <option value="studio" data-price="0">In-Studio Session</option>
+        <option value="mobile" data-price="0">Mobile Studio</option>
+        <option value="mixing" data-price="0">Mixing & Mastering</option>
+        <option value="mastering" data-price="0">Mastering Only</option>
+      </select>
+
+      <label for="quantity">Select Quantity</label>
+      <select id="quantity" name="quantity">
+        <option value="1" data-unit="100">1 – $100</option>
+        <option value="2" data-unit="100">2 – $200</option>
+        <option value="3" data-unit="100">3 – $300</option>
+      </select>
+
+      <div id="totalDisplay">Total: $100</div>
+
+      <input type="hidden" id="paypalAmount" name="amount" value="100" />
+    </form>
+
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="paypalForm">
+      <input type="hidden" name="cmd" value="_xclick" />
+      <input type="hidden" name="business" value="royvltylife@gmail.com" />
+      <input type="hidden" name="currency_code" value="USD" />
+      <input type="hidden" name="item_name" id="paypalItem" value="In-Studio Session" />
+      <input type="hidden" name="amount" id="paypalTotal" value="100" />
+      <button type="submit">Pay with PayPal</button>
+    </form>
+  </div>
+
+  <script>
+    const service = document.getElementById("service");
+    const quantity = document.getElementById("quantity");
+    const totalDisplay = document.getElementById("totalDisplay");
+    const paypalItem = document.getElementById("paypalItem");
+    const paypalTotal = document.getElementById("paypalTotal");
+
+    function updateTotal() {
+      const unitPrice = parseInt(quantity.selectedOptions[0].getAttribute("data-unit"));
+      const qty = parseInt(quantity.value);
+      const total = unitPrice * qty;
+
+      totalDisplay.textContent = "Total: $" + total;
+      paypalItem.value = service.selectedOptions[0].text;
+      paypalTotal.value = total;
+    }
+
+    service.addEventListener("change", updateTotal);
+    quantity.addEventListener("change", updateTotal);
+
+    updateTotal(); // initialize
+  </script>
+</body>
+</html>
