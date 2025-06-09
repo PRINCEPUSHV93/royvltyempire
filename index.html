@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ROYVLTY EMPIRE</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROYVLTY EMPIRE – Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <style>
     body {
       margin: 0;
@@ -14,71 +14,73 @@
       color: #fff;
       text-align: center;
     }
-    header {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 20px 40px;
-      background-color: rgba(0, 0, 0, 0.85);
-      position: sticky;
-      top: 0;
-      z-index: 999;
-    }
-    .logo {
-      width: 120px;
-      margin-bottom: 10px;
-    }
+
     nav {
+      background-color: rgba(0, 0, 0, 0.9);
+      padding: 10px;
       display: flex;
       justify-content: center;
-      flex-wrap: wrap;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
     }
+
     nav a {
-      color: gold;
       margin: 0 15px;
+      color: gold;
       text-decoration: none;
       font-weight: bold;
     }
-    nav a:hover {
-      color: #ffd700;
-    }
-    h1 {
+
+    .logo {
       margin-top: 80px;
-      font-size: 48px;
-      color: gold;
+      width: 140px;
     }
-    .testimonial {
-      margin: 40px auto;
-      max-width: 600px;
-      font-style: italic;
+
+    h1 {
+      color: gold;
+      font-size: 36px;
+      margin-top: 20px;
+    }
+
+    .welcome-message {
+      max-width: 800px;
+      margin: 20px auto;
       font-size: 18px;
-      color: #ccc;
+      line-height: 1.6;
+    }
+
+    .testimonial {
+      background-color: rgba(0, 0, 0, 0.6);
+      margin: 40px auto;
+      padding: 20px;
+      max-width: 600px;
+      border-radius: 10px;
+      font-style: italic;
     }
   </style>
 </head>
 <body>
-  <header>
-    <nav>
-      <a href="about.html">About Me</a>
-      <a href="#services">Services</a>
-      <a href="#locations">Booking Locations</a>
-      <a href="#consultation">Consultation</a>
-    </nav>
-    <img src="logo.jpg" alt="ROYVLTY Logo" class="logo">
-  </header>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Me</a>
+    <a href="#">Services</a>
+    <a href="locations.html">Booking Locations</a>
+    <a href="consultation.html">Consultations</a>
+  </nav>
 
+  <img src="logo.jpg" alt="ROYVLTY Logo" class="logo" />
   <h1>Welcome to ROYVLTY EMPIRE</h1>
-  <p style="max-width: 800px; margin: 20px auto; font-size: 18px; line-height: 1.6;">
-    ROYVLTY EMPIRE is more than just a music brand — we are a movement dedicated to empowering independent artists and creators. Founded on the belief that every artist deserves to own their sound and be heard, we provide a personalized approach to music engineering, artist development, and promotional services.
-    <br><br>
-    Our mission is to give artists the tools, knowledge, and support they need to thrive in an industry that often overlooks raw talent. We stand for creativity, integrity, and real connection. From professional in-studio sessions to on-the-go mobile recording, our services are crafted to meet artists where they are — literally and musically.
-    <br><br>
-    At ROYVLTY EMPIRE, we offer more than we ask. With us, you're not just another client — you're family. We believe in building careers, not just hits, and guiding artists and future industry leaders through hands-on experience, industry insight, and a dedicated support system.
+  <p class="welcome-message">
+    At ROYVLTY EMPIRE, we stand for creative independence, quality over clout, and a deeper connection between artist and team.
+    We’re more than a studio — we’re a family. With top-tier production, expert engineering, artist development, and promotional support, 
+    our goal is to help every independent artist thrive without compromise. Whether you’re just starting or seasoned in the game, 
+    we’re here to elevate your vision with honesty, professionalism, and passion.
   </p>
 
   <div class="testimonial">
-    <p>“Working with ROYVLTY EMPIRE was a game-changer for me. The clarity and power they brought to my music made it industry-ready.”</p>
-    <p>– J, Independent Artist</p>
+    “Working with ROYVLTY EMPIRE changed everything. From the engineering to the vibes, I’ve never felt more at home in a studio.” — J. Artist
   </div>
 </body>
 </html>
