@@ -1,18 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ROYVLTY EMPIRE</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: url('booth-background.jpg') no-repeat center center fixed;
+      background: url('studio-background.jpg') no-repeat center center fixed;
       background-size: cover;
       color: #fff;
-      text-align: center;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(0, 0, 0, 0.85);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    .logo {
+      width: 120px;
+    }
+    nav a {
+      color: gold;
+      margin-left: 30px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      color: #ffd700;
     }
     .container {
       background-color: rgba(0, 0, 0, 0.75);
@@ -21,6 +42,7 @@
       max-width: 1000px;
       border-radius: 20px;
       box-shadow: 0 0 20px gold;
+      text-align: center;
     }
     h1 {
       color: gold;
@@ -46,13 +68,18 @@
   </style>
 </head>
 <body>
+  <header>
+    <img src="logo.jpg" alt="ROYVLTY Logo" class="logo">
+    <nav>
+      <a href="about.html">About Me</a>
+      <a href="#services">Services</a>
+      <a href="#locations">Booking Locations</a>
+      <a href="#consultation">Consultation</a>
+    </nav>
+  </header>
   <div class="container">
     <h1>Welcome to ROYVLTY EMPIRE</h1>
     <p>This is the main landing page. Explore services, book sessions, and connect with your team.</p>
-    <a href="about.html" class="btn-home">About Me</a>
-    <a href="#services" class="btn-home">Services</a>
-    <a href="#locations" class="btn-home">Booking Locations</a>
-    <a href="#consultation" class="btn-home">Consultation</a>
   </div>
 </body>
 </html>
