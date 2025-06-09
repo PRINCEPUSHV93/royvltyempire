@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ROYVLTY EMPIRE – Home</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
   <style>
     body {
       margin: 0;
@@ -13,6 +14,23 @@
       background-size: cover;
       color: #fff;
       text-align: center;
+    }
+    .navbar {
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 10px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .navbar a {
+      color: gold;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+    }
+    .navbar a:hover {
+      color: #ffd700;
     }
     .container {
       background-color: rgba(0, 0, 0, 0.7);
@@ -26,10 +44,8 @@
       width: 120px;
       margin-bottom: 20px;
     }
-    h1 {
+    h1, h2 {
       color: gold;
-      font-size: 36px;
-      margin-bottom: 10px;
     }
     p {
       font-size: 18px;
@@ -55,17 +71,30 @@
       font-size: 14px;
       color: #ccc;
     }
+    .socials i {
+      font-size: 24px;
+      margin: 0 10px;
+      color: gold;
+      transition: color 0.3s;
+    }
+    .socials i:hover {
+      color: #ffd700;
+    }
   </style>
 </head>
 <body>
+  <div class="navbar">
+    <a href="#">Home</a>
+    <a href="#about">About Me</a>
+    <a href="#services">Services</a>
+    <a href="#locations">Booking Locations</a>
+    <a href="#consultation">Consultation</a>
+    <a href="mailto:royvltylife@gmail.com"><i class="fas fa-envelope"></i></a>
+    <a href="https://www.instagram.com/royvltyempire25" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.youtube.com/@royvltyempire1512" target="_blank"><i class="fab fa-youtube"></i></a>
+  </div>
+
   <div class="container">
-    <p>
-      📩 Have questions? <a href="mailto:royvltylife@gmail.com" style="color: gold; font-weight: bold;">Email Us</a>
-    </p>
-    <p>
-      <a href="https://www.instagram.com/royvltyempire25" target="_blank" style="color: gold;">📸 Instagram</a> |
-      <a href="https://www.youtube.com/@royvltyempire1512" target="_blank" style="color: gold;">🎥 YouTube</a>
-    </p>
     <p style="font-style: italic;">“ROYVLTY EMPIRE helped me level up my sound and brand in just one month!” – J. Artist</p>
     <img src="logo.jpg" alt="ROYVLTY Logo" class="logo">
     <h1>Welcome to ROYVLTY EMPIRE</h1>
@@ -74,6 +103,30 @@
     <p>From in-house sessions to mobile studio setups, we bring professional-grade sound and support to your music journey. Our mobile studio services range from $100 per song (mix & master included) to $300 per day for extended bookings. Our promotion packages are tailored to your needs, ranging from $50/month for basic exposure to $5,000/month for high-level campaigns and ongoing growth.</p>
     <p>Interested in personalized artist development, exclusive promotion packages, or our premium artist house experience? <strong>Let’s elevate your career – reach out to begin your custom plan today.</strong></p>
     <a href="booking.html" class="btn-book">🎧 Book a Session</a>
+  </div>
+
+  <div id="services" class="container">
+    <h2>Our Services</h2>
+    <h3>In-Studio Sessions</h3>
+    <p><strong>Price:</strong> $50/hour (2-hour minimum). Contact for block sessions over 6 hours.</p>
+    <p>Includes recording and mixing. Mastering is separate. Requires 50%–100% deposit (non-refundable). 24-hour cancellation window.</p>
+
+    <h3>Mobile Studio Sessions</h3>
+    <p><strong>Florida:</strong> $100 per song (3-hour minimum). <br><strong>Out-of-State:</strong> $300/day. Full mobile setup and engineering included.</p>
+    <p>Travel to all U.S. states. Extra fees apply for CA, NY, HI, AK, and Northeast. Full payment required upfront. 7-day cancellation for refund.</p>
+
+    <h3>Mixing & Mastering</h3>
+    <p><strong>Price:</strong> $75 per song. 24-hour turnaround.</p>
+    <p>Send WAV files. Beat stems cost extra. Email or WeTransfer accepted. <strong>✅ UNLIMITED FREE REVISIONS</strong>. 50% deposit required (non-refundable).</p>
+
+    <h3>Mastering Only</h3>
+    <p><strong>Price:</strong> $50 per song. 24-hour turnaround.</p>
+    <p>Send final mix in WAV or MP3. Full session preferred. Email or WeTransfer. 50% deposit required (non-refundable).</p>
+
+    <h3>Radio Edit</h3>
+    <p><strong>Price:</strong> $100 per song. 48–72 hour turnaround.</p>
+    <p>Includes clean version + performance version. WAV or MP3 accepted. Full session preferred. Email or WeTransfer.</p>
+    <p><strong>✅ UNLIMITED FREE REVISIONS</strong>. Full payment required upfront.</p>
   </div>
 
   <div class="footer">
