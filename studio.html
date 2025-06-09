@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>In-Studio Sessions – ROYVLTY EMPIRE</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: url('studio-vibe.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      text-align: center;
+    }
+    nav {
+      background-color: rgba(0, 0, 0, 0.9);
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+    nav a {
+      margin: 0 15px;
+      color: gold;
+      text-decoration: none;
+      font-weight: bold;
+      position: relative;
+    }
+    nav .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    nav .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: rgba(0, 0, 0, 0.95);
+      min-width: 160px;
+      z-index: 1001;
+      top: 100%;
+      left: 0;
+    }
+    nav .dropdown-content a {
+      color: gold;
+      padding: 10px 16px;
+      text-decoration: none;
+      display: block;
+      text-align: left;
+    }
+    nav .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    header {
+      padding: 100px 20px 20px;
+    }
+    .logo {
+      width: 120px;
+      margin-bottom: 10px;
+    }
+    h1 {
+      color: gold;
+      margin-top: 30px;
+    }
+    h2 {
+      margin-top: 40px;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      font-size: 18px;
+    }
+    .btn-book {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 15px 30px;
+      background-color: gold;
+      color: black;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Me</a>
+    <div class="dropdown">
+      <a href="#">Services</a>
+      <div class="dropdown-content">
+        <a href="studio.html">In-Studio Sessions</a>
+        <a href="mobile.html">Mobile Studio Sessions</a>
+        <a href="mixing.html">Mixing & Mastering</a>
+        <a href="mastering.html">Mastering</a>
+        <a href="radio.html">Radio Edit</a>
+        <a href="consultation.html">Consultations</a>
+      </div>
+    </div>
+    <a href="locations.html">Booking Locations</a>
+    <a href="consultation.html">Consultations</a>
+  </nav>
+
+  <header>
+    <img src="logo.jpg" alt="ROYVLTY Logo" class="logo" />
+  </header>
+
+  <h1>In-Studio Sessions</h1>
+  <p style="max-width: 800px; margin: 20px auto; font-size: 18px; line-height: 1.6;">
+    Lock in your sound in a professional, high-quality studio environment. Our in-studio sessions are tailored for serious artists ready to elevate their music with expert engineering and creative guidance.
+    <br /><br />
+    Each session includes professional mixing during your booked time, industry-level gear, and a chill, inspiring atmosphere with vibes that match your energy — friends, smoke, and good vibes welcome.
+  </p>
+
+  <h2 style="color: gold;">💰 Pricing</h2>
+  <ul>
+    <li>🎧 $50/hour (2-hour minimum)</li>
+    <li>📞 For sessions longer than 6 hours, contact us for a custom block rate</li>
+    <li>🎧 Mixing is included</li>
+    <li>🔊 Mastering is separate</li>
+  </ul>
+
+  <h2 style="color: gold;">📋 Booking Policy</h2>
+  <ul>
+    <li>📌 50%–100% deposit required to secure your time</li>
+    <li>⏳ You have 24 hours after booking to cancel. After that, your deposit becomes non-refundable.</li>
+    <li>🗓️ Sessions start at the scheduled time — late arrivals eat into your booked time</li>
+  </ul>
+
+  <a href="booking.html" class="btn-book">Book Now</a>
+</body>
+</html>
