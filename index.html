@@ -16,7 +16,7 @@
     }
     header {
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
       align-items: center;
       padding: 20px 40px;
       background-color: rgba(0, 0, 0, 0.85);
@@ -26,10 +26,16 @@
     }
     .logo {
       width: 120px;
+      margin-bottom: 10px;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
     }
     nav a {
       color: gold;
-      margin-left: 30px;
+      margin: 0 15px;
       text-decoration: none;
       font-weight: bold;
     }
@@ -52,6 +58,12 @@
 </head>
 <body>
   <header>
+    <nav>
+      <a href="about.html">About Me</a>
+      <a href="#services">Services</a>
+      <a href="#locations">Booking Locations</a>
+      <a href="#consultation">Consultation</a>
+    </nav>
     <img src="logo.jpg" alt="ROYVLTY Logo" class="logo">
     <nav>
       <a href="about.html">About Me</a>
@@ -62,6 +74,13 @@
   </header>
 
   <h1>Welcome to ROYVLTY EMPIRE</h1>
+  <p style="max-width: 800px; margin: 20px auto; font-size: 18px; line-height: 1.6;">
+    ROYVLTY EMPIRE is more than just a music brand — we are a movement dedicated to empowering independent artists and creators. Founded on the belief that every artist deserves to own their sound and be heard, we provide a personalized approach to music engineering, artist development, and promotional services.
+    <br><br>
+    Our mission is to give artists the tools, knowledge, and support they need to thrive in an industry that often overlooks raw talent. We stand for creativity, integrity, and real connection. From professional in-studio sessions to on-the-go mobile recording, our services are crafted to meet artists where they are — literally and musically.
+    <br><br>
+    At ROYVLTY EMPIRE, we offer more than we ask. With us, you're not just another client — you're family. We believe in building careers, not just hits, and guiding artists and future industry leaders through hands-on experience, industry insight, and a dedicated support system.
+  </p>
 
   <div class="testimonial">
     <p>“Working with ROYVLTY EMPIRE was a game-changer for me. The clarity and power they brought to my music made it industry-ready.”</p>
