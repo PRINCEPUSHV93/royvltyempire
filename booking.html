@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book a Session – ROYVLTY EMPIRE</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #000;
+      color: #fff;
+      padding: 50px;
+      text-align: center;
+    }
+    form {
+      background: rgba(255,255,255,0.05);
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 500px;
+      margin: auto;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: none;
+    }
+    button {
+      background: gold;
+      border: none;
+      padding: 12px 25px;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Book Your Session</h1>
+  <p>Fill out the form below to schedule your service and make a payment.</p>
+  <form action="https://formsubmit.co/royvltylife@gmail.com" method="POST">
+    <input type="text" name="name" placeholder="Full Name" required />
+    <input type="email" name="email" placeholder="Email Address" required />
+    <select name="service" required>
+      <option value="">Select Service</option>
+      <option value="In-Studio">In-Studio Session</option>
+      <option value="Mobile Studio">Mobile Studio</option>
+      <option value="Mixing & Mastering">Mixing & Mastering</option>
+      <option value="Mastering">Mastering Only</option>
+      <option value="Radio Edit">Radio Edit</option>
+      <option value="Consultation">Consultation</option>
+    </select>
+    <input type="text" name="date" placeholder="Preferred Date" />
+    <input type="text" name="time" placeholder="Preferred Time" />
+    <textarea name="message" placeholder="Additional Notes or Song Info"></textarea>
+
+    <input type="hidden" name="_subject" value="New Booking Request" />
+    <input type="hidden" name="_template" value="box">
+    <input type="hidden" name="_autoresponse" value="Thank you for booking with ROYVLTY EMPIRE. We’ve received your request and will follow up shortly.">
+
+    <button type="submit">Submit Booking</button>
+  </form>
+
+  <br/><br/>
+  <h2>Payment</h2>
+  <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+    <input type="hidden" name="cmd" value="_xclick">
+    <input type="hidden" name="business" value="royvltylife@gmail.com">
+    <input type="hidden" name="item_name" value="ROYVLTY EMPIRE Service Booking">
+    <input type="hidden" name="currency_code" value="USD">
+    <input type="number" name="amount" placeholder="Enter Total Amount" required>
+    <br/><br/>
+    <button type="submit">Pay with PayPal</button>
+  </form>
+</body>
+</html>
