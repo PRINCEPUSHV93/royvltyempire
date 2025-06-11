@@ -6,152 +6,125 @@
   <title>Book a Session – ROYVLTY EMPIRE</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-image: url('studio-background.jpg');
-      background-size: cover;
-      background-position: center;
       margin: 0;
-      padding: 0;
+      font-family: Arial, sans-serif;
+      background: url('studio-background.jpg') no-repeat center center fixed;
+      background-size: cover;
       color: white;
-      text-align: center;
     }
-
     .container {
-      background-color: rgba(0, 0, 0, 0.8);
-      padding: 30px;
-      margin: 50px auto;
-      width: 90%;
-      max-width: 700px;
-      border-radius: 10px;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px;
+      background-color: rgba(0, 0, 0, 0.6);
     }
-
-    select, input[type="text"], input[type="number"] {
-      padding: 10px;
-      width: 80%;
-      margin: 10px 0;
-      border-radius: 5px;
-      border: none;
+    h1, h2, label {
+      color: white;
     }
-
-    label {
+    select, input, button {
       display: block;
-      margin-top: 20px;
-      font-weight: bold;
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
     }
-
-    button {
-      padding: 10px 20px;
-      background-color: gold;
-      color: black;
-      border: none;
-      border-radius: 5px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    .section {
-      text-align: left;
+    .info-section {
       margin-top: 40px;
     }
-
-    h2, h3 {
-      color: gold;
+    .testimonial {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 15px;
+      margin-top: 15px;
+      border-left: 4px solid gold;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h2>🎧 Book a Studio Session</h2>
+    <h1>🎧 Book a Studio Session</h1>
 
-    <label for="service">Choose a Service:</label>
-    <select id="service" onchange="handleServiceChange()">
-      <option value="">-- Select --</option>
-      <option value="In Studio">In Studio</option>
-      <option value="Mobile Studio">Mobile Studio</option>
-      <option value="Mixing & Mastering">Mixing & Mastering</option>
-      <option value="Mastering">Mastering</option>
-      <option value="Radio Edit">Radio Edit</option>
-    </select>
+    <form>
+      <label for="service">Select a service:</label>
+      <select id="service" name="service" onchange="handleServiceChange()">
+        <option value="">-- Choose Service --</option>
+        <option value="In Studio">In Studio</option>
+        <option value="Mobile Studio">Mobile Studio</option>
+        <option value="Mixing & Mastering">Mixing & Mastering</option>
+        <option value="Mastering">Mastering</option>
+        <option value="Radio Edit">Radio Edit</option>
+      </select>
 
-    <div id="dynamicFields"></div>
-    <div id="addressField" style="display:none;">
-      <label for="address">Enter Florida Address:</label>
-      <input type="text" id="address" placeholder="Enter address"/>
-    </div>
+      <div id="dynamic-options"></div>
 
-    <button onclick="submitBooking()">Submit Booking</button>
+      <button type="submit">Submit Booking</button>
+    </form>
 
-    <div class="section">
-      <h3>🔁 Free Revisions</h3>
-      <p>Unlimited free revisions on any project we've worked on together.</p>
-    </div>
+    <div class="info-section">
+      <h2>Free Revisions + Why Work With Me</h2>
+      <p>✅ Free unlimited revisions on all work I personally handled.</p>
+      <p>✅ Clean and industry-ready mixes tailored to your sound.</p>
+      <p>✅ Fast turnarounds and true professional communication.</p>
+      <p>✅ Artists say it best...</p>
 
-    <div class="section">
-      <h3>🔥 Why Book With ROYVLTY EMPIRE?</h3>
-      <ul>
-        <li>Industry-standard mixing and mastering</li>
-        <li>Professional mobile recording sessions</li>
-        <li>Real-time feedback and one-on-one service</li>
-        <li>Trusted by dozens of serious independent artists</li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h3>💬 What Artists Are Saying</h3>
-      <p>"The mix was so clean and fast! ROYVLTY EMPIRE made me sound industry ready!" – J Artist</p>
+      <div class="testimonial">
+        <p><strong>"J Artist:</strong> Pusha took my track from local to legendary. Can't wait to work again!"</p>
+      </div>
     </div>
   </div>
 
   <script>
     function handleServiceChange() {
-      const service = document.getElementById('service').value;
-      const dynamicFields = document.getElementById('dynamicFields');
-      const addressField = document.getElementById('addressField');
-      dynamicFields.innerHTML = '';
-      addressField.style.display = 'none';
+      const service = document.getElementById("service").value;
+      const container = document.getElementById("dynamic-options");
+      container.innerHTML = "";
 
-      if (service === "In Studio") {
-        dynamicFields.innerHTML = `
-          <label>Choose Location:</label>
-          <select>
-            <option value="SOTA">SOTA STUDIOS</option>
-            <option value="MTTG">MARRIED TO THE GAME PRODUCTIONS</option>
+      if (service === "Mobile Studio") {
+        container.innerHTML += `
+          <label for="state">Select State:</label>
+          <select id="state" name="state" onchange="handleStateChange()">
+            <option value="">-- Choose State --</option>
+            ${Array.from(
+              ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida",
+              "Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine",
+              "Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska",
+              "Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Ohio",
+              "Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas",
+              "Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"]
+            ).map(state => `<option value="${state}">${state}</option>`).join("")}
           </select>
-        `;
-      } else if (service === "Mobile Studio") {
-        dynamicFields.innerHTML = `
-          <label>Choose Your State:</label>
-          <select id="state" onchange="checkState()">
-            <option value="">-- Select State --</option>
-            ${["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"].map(state => `<option value="${state}">${state}</option>`).join("")}
-          </select>
-        `;
-      } else if (service === "Mixing & Mastering") {
-        dynamicFields.innerHTML = `
-          <label>How Many Songs? ($75/song)</label>
-          <input type="number" min="1" />
-        `;
-      } else if (service === "Mastering") {
-        dynamicFields.innerHTML = `
-          <label>How Many Songs? ($50/song)</label>
-          <input type="number" min="1" />
-        `;
-      } else if (service === "Radio Edit") {
-        dynamicFields.innerHTML = `
-          <label>How Many Songs? ($100/song)</label>
-          <input type="number" min="1" />
+          <div id="state-specific"></div>
         `;
       }
     }
 
-    function checkState() {
-      const selectedState = document.getElementById('state').value;
-      const addressField = document.getElementById('addressField');
-      addressField.style.display = selectedState === "Florida" ? "block" : "none";
-    }
+    function handleStateChange() {
+      const state = document.getElementById("state").value;
+      const container = document.getElementById("state-specific");
+      container.innerHTML = "";
 
-    function submitBooking() {
-      alert("Thank you for your interest! We'll follow up via email.");
+      if (state === "Florida") {
+        container.innerHTML += `
+          <label for="address">Enter valid Florida address:</label>
+          <input type="text" id="address" name="address" placeholder="Enter address" required />
+          <label for="songs">Number of Songs ($100/song):</label>
+          <select id="songs" name="songs">
+            ${[1,2,3,4,5,6,7,8,9,10].map(n => `<option value="${n}">${n} song(s) – $${n*100}</option>`).join("")}
+          </select>
+        `;
+      } else {
+        container.innerHTML += `
+          <label for="address">Enter valid address:</label>
+          <input type="text" id="address" name="address" placeholder="Enter address" required />
+          <label for="days">How many days? ($300/day):</label>
+          <select id="days" name="days">
+            ${[1,2,3,4,5].map(n => `<option value="${n}">${n} day(s) – $${n*300}</option>`).join("")}
+          </select>
+        `;
+      }
+
+      container.innerHTML += `
+        <label for="datetime">Select Date & Time Needed:</label>
+        <input type="datetime-local" id="datetime" name="datetime" required />
+      `;
     }
   </script>
 </body>
