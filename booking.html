@@ -1,131 +1,148 @@
+# Rebuild the correct full version of booking.html and zip it
+booking_html_content = """
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Book a Session – ROYVLTY EMPIRE</title>
   <style>
     body {
       margin: 0;
+      padding: 0;
       font-family: Arial, sans-serif;
-      background: url('studio-background.jpg') no-repeat center center fixed;
+      background-image: url('studio-background.jpg');
       background-size: cover;
+      background-position: center;
       color: white;
     }
     .container {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 2em;
+      margin: 3em auto;
+      width: 90%;
       max-width: 800px;
-      margin: 0 auto;
-      padding: 40px;
-      background-color: rgba(0, 0, 0, 0.6);
+      border-radius: 10px;
     }
-    h1, h2, label {
-      color: white;
+    h1, h2 {
+      text-align: center;
     }
-    select, input, button {
+    label, select, input, textarea {
       display: block;
       width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-    }
-    .info-section {
-      margin-top: 40px;
+      margin-bottom: 1em;
     }
     .testimonial {
-      background: rgba(255, 255, 255, 0.1);
-      padding: 15px;
-      margin-top: 15px;
-      border-left: 4px solid gold;
+      margin-top: 2em;
+      font-style: italic;
+      border-top: 1px solid white;
+      padding-top: 1em;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>🎧 Book a Studio Session</h1>
+    <h1>Book a Session</h1>
 
-    <form>
-      <label for="service">Select a service:</label>
-      <select id="service" name="service" onchange="handleServiceChange()">
-        <option value="">-- Choose Service --</option>
-        <option value="In Studio">In Studio</option>
-        <option value="Mobile Studio">Mobile Studio</option>
-        <option value="Mixing & Mastering">Mixing & Mastering</option>
-        <option value="Mastering">Mastering</option>
-        <option value="Radio Edit">Radio Edit</option>
+    <p><strong>Free revisions only on work I touched for you.</strong></p>
+    <p>Major reasons why you want me on your next project:</p>
+    <ul>
+      <li>✅ Over 9 years of professional engineering experience</li>
+      <li>✅ Independent & major label artist support</li>
+      <li>✅ Clean mix with attention to performance</li>
+      <li>✅ Consultations and guidance available</li>
+    </ul>
+
+    <form id="booking-form">
+      <label for="service">Select a Service:</label>
+      <select id="service" name="service" required>
+        <option value="">-- Select --</option>
+        <option value="in-studio">In-Studio Session</option>
+        <option value="mobile-studio">Mobile Studio</option>
+        <option value="mixing">Mixing & Mastering</option>
+        <option value="mastering">Mastering Only</option>
+        <option value="radio-edit">Radio Edit</option>
       </select>
 
-      <div id="dynamic-options"></div>
+      <div id="dynamic-fields"></div>
 
-      <button type="submit">Submit Booking</button>
+      <div id="paypal-button-container"></div>
     </form>
 
-    <div class="info-section">
-      <h2>Free Revisions + Why Work With Me</h2>
-      <p>✅ Free unlimited revisions on all work I personally handled.</p>
-      <p>✅ Clean and industry-ready mixes tailored to your sound.</p>
-      <p>✅ Fast turnarounds and true professional communication.</p>
-      <p>✅ Artists say it best...</p>
-
-      <div class="testimonial">
-        <p><strong>"J Artist:</strong> Pusha took my track from local to legendary. Can't wait to work again!"</p>
-      </div>
+    <div class="testimonial">
+      <h2>Testimonial</h2>
+      <blockquote>
+        “Prince Pusha made my sound professional. Real one for the independent artists.” – J Artist
+      </blockquote>
     </div>
   </div>
 
   <script>
-    function handleServiceChange() {
-      const service = document.getElementById("service").value;
-      const container = document.getElementById("dynamic-options");
-      container.innerHTML = "";
+    const serviceSelect = document.getElementById('service');
+    const dynamicFields = document.getElementById('dynamic-fields');
 
-      if (service === "Mobile Studio") {
-        container.innerHTML += `
-          <label for="state">Select State:</label>
-          <select id="state" name="state" onchange="handleStateChange()">
-            <option value="">-- Choose State --</option>
-            ${Array.from(
-              ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida",
-              "Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine",
-              "Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska",
-              "Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Ohio",
-              "Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas",
-              "Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"]
-            ).map(state => `<option value="${state}">${state}</option>`).join("")}
-          </select>
-          <div id="state-specific"></div>
-        `;
+    serviceSelect.addEventListener('change', function () {
+      const service = this.value;
+      dynamicFields.innerHTML = '';
+
+      if (service === 'mobile-studio') {
+        const stateSelect = document.createElement('select');
+        stateSelect.name = "state";
+        stateSelect.required = true;
+        const states = ["", "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut",
+                        "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas",
+                        "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota",
+                        "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey",
+                        "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon",
+                        "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah",
+                        "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"];
+        stateSelect.innerHTML = states.map(s => `<option value="${s}">${s}</option>`).join('');
+        dynamicFields.appendChild(stateSelect);
+
+        const addressInput = document.createElement('input');
+        addressInput.name = "address";
+        addressInput.placeholder = "Enter a valid address";
+        dynamicFields.appendChild(addressInput);
+
+        stateSelect.addEventListener('change', function () {
+          const isFlorida = this.value === "Florida";
+          dynamicFields.innerHTML += ''; // Clear extras first
+
+          if (isFlorida) {
+            const songCount = document.createElement('select');
+            songCount.name = "songs";
+            songCount.innerHTML = ['1', '2', '3', '4', '5'].map(num => `<option value="${num}">${num} song(s) – $${num * 100}</option>`).join('');
+            dynamicFields.appendChild(songCount);
+          } else {
+            const dayCount = document.createElement('select');
+            dayCount.name = "days";
+            dayCount.innerHTML = ['1', '2', '3', '4', '5'].map(num => `<option value="${num}">${num} day(s) – $${num * 300}</option>`).join('');
+            dynamicFields.appendChild(dayCount);
+          }
+
+          const dateInput = document.createElement('input');
+          dateInput.type = "date";
+          dynamicFields.appendChild(dateInput);
+
+          const timeInput = document.createElement('input');
+          timeInput.type = "time";
+          dynamicFields.appendChild(timeInput);
+        });
       }
-    }
-
-    function handleStateChange() {
-      const state = document.getElementById("state").value;
-      const container = document.getElementById("state-specific");
-      container.innerHTML = "";
-
-      if (state === "Florida") {
-        container.innerHTML += `
-          <label for="address">Enter valid Florida address:</label>
-          <input type="text" id="address" name="address" placeholder="Enter address" required />
-          <label for="songs">Number of Songs ($100/song):</label>
-          <select id="songs" name="songs">
-            ${[1,2,3,4,5,6,7,8,9,10].map(n => `<option value="${n}">${n} song(s) – $${n*100}</option>`).join("")}
-          </select>
-        `;
-      } else {
-        container.innerHTML += `
-          <label for="address">Enter valid address:</label>
-          <input type="text" id="address" name="address" placeholder="Enter address" required />
-          <label for="days">How many days? ($300/day):</label>
-          <select id="days" name="days">
-            ${[1,2,3,4,5].map(n => `<option value="${n}">${n} day(s) – $${n*300}</option>`).join("")}
-          </select>
-        `;
-      }
-
-      container.innerHTML += `
-        <label for="datetime">Select Date & Time Needed:</label>
-        <input type="datetime-local" id="datetime" name="datetime" required />
-      `;
-    }
+    });
   </script>
 </body>
 </html>
+"""
+
+# Save the HTML
+booking_html_path = "/mnt/data/booking.html"
+with open(booking_html_path, "w") as f:
+    f.write(booking_html_content)
+
+# Zip it
+booking_zip_path = "/mnt/data/booking_final_restore.zip"
+with zipfile.ZipFile(booking_zip_path, "w") as zipf:
+    zipf.write(booking_html_path, arcname="booking.html")
+
+booking_zip_path
