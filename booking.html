@@ -1,0 +1,178 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book a Session – ROYVLTY EMPIRE</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url('studio-background.jpg');
+      background-size: cover;
+      background-position: center;
+      margin: 0;
+      padding: 0;
+      color: white;
+      text-shadow: 1px 1px 2px #000;
+    }
+    header {
+      text-align: center;
+      padding: 20px;
+    }
+    .container {
+      background: rgba(0, 0, 0, 0.7);
+      margin: 30px auto;
+      padding: 30px;
+      max-width: 700px;
+      border-radius: 10px;
+    }
+    select, input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+    }
+    .paypal-btn {
+      margin-top: 20px;
+    }
+    .testimonial {
+      margin-top: 40px;
+      font-style: italic;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logo.jpg" alt="ROYVLTY Logo" style="width:120px;">
+    <h1>Book a Session</h1>
+  </header>
+  <div class="container">
+    <label for="service">Choose a Service:</label>
+    <select id="service">
+      <option value="">Select</option>
+      <option value="inStudio">In Studio</option>
+      <option value="mobileStudio">Mobile Studio</option>
+      <option value="mixing">Mixing & Mastering</option>
+      <option value="mastering">Mastering Only</option>
+      <option value="consultation">Consultation</option>
+    </select>
+
+    <div id="optionsArea"></div>
+
+    <div class="paypal-btn">
+      <button onclick="checkout()">Pay with PayPal</button>
+    </div>
+
+    <div class="testimonial">
+      "Prince Pusha took my sound to the next level. I’ll never work with another engineer again!" – J Artist
+    </div>
+    <p><strong>Note:</strong> Free revisions apply to work completed by ROYVLTY EMPIRE only.</p>
+  </div>
+
+  <script>
+    const serviceSelect = document.getElementById("service");
+    const optionsArea = document.getElementById("optionsArea");
+
+    serviceSelect.addEventListener("change", () => {
+      const selected = serviceSelect.value;
+      let html = "";
+      if (selected === "inStudio") {
+        html = `
+          <label>Choose Location:</label>
+          <select>
+            <option>SOTA STUDIOS</option>
+            <option>MARRIED TO THE GAME PRODUCTIONS</option>
+          </select>
+        `;
+      } else if (selected === "mobileStudio") {
+        html = `
+          <label>State:</label>
+          <select id="stateSelect" onchange="handleState()">
+            ${Array.from({ length: 50 }, (_, i) => {
+              const states = ["AL","AK","AZ","AR","CA","CO","CT","DE","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MN","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY"];
+              return `<option value="${states[i]}">${states[i]}</option>`;
+            }).join("")}
+          </select>
+          <div id="mobileOptions"></div>
+        `;
+      } else if (selected === "mixing") {
+        html = `
+          <label># of Songs ($75 each):</label>
+          <select>
+            ${[1,2,3,4,5].map(i => `<option>${i} – $${i*75}</option>`).join("")}
+          </select>
+        `;
+      } else if (selected === "mastering") {
+        html = `
+          <label># of Songs ($50 each):</label>
+          <select>
+            ${[1,2,3,4,5].map(i => `<option>${i} – $${i*50}</option>`).join("")}
+          </select>
+        `;
+      } else if (selected === "consultation") {
+        html = `
+          <label>Choose Type:</label>
+          <select id="consultType" onchange="handleConsultation()">
+            <option value="hourly">Hourly</option>
+            <option value="daily">By Day</option>
+          </select>
+          <div id="consultOptions"></div>
+        `;
+      }
+      optionsArea.innerHTML = html;
+    });
+
+    function handleState() {
+      const val = document.getElementById("stateSelect").value;
+      let html = `
+        <label>Provide Full Address:</label>
+        <input type="text" placeholder="Enter full address" required>
+      `;
+      if (val === "FL") {
+        html += `
+          <label># of Songs ($100/song):</label>
+          <select>
+            ${[1,2,3,4,5].map(i => `<option>${i} – $${i*100}</option>`).join("")}
+          </select>
+        `;
+      } else {
+        html += `
+          <label>How Many Days ($300/day):</label>
+          <select>
+            ${[1,2,3].map(i => `<option>${i} – $${i*300}</option>`).join("")}
+          </select>
+        `;
+      }
+      html += `<label>Date & Time Needed:</label><input type="datetime-local">`;
+      document.getElementById("mobileOptions").innerHTML = html;
+    }
+
+    function handleConsultation() {
+      const val = document.getElementById("consultType").value;
+      const container = document.getElementById("consultOptions");
+      if (val === "hourly") {
+        container.innerHTML = `
+          <label># of Hours ($100/hr):</label>
+          <select>
+            ${[1,2,3].map(i => `<option>${i} – $${i*100}</option>`).join("")}
+          </select>
+        `;
+      } else {
+        container.innerHTML = `
+          <label># of Days ($500/day):</label>
+          <select>
+            ${[1,2,3].map(i => `<option>${i} – $${i*500}</option>`).join("")}
+          </select>
+        `;
+      }
+    }
+
+    function checkout() {
+      alert("Redirecting to PayPal... (simulated)");
+      window.location.href = "thank-you.html";
+    }
+  </script>
+</body>
+</html>
