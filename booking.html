@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book a Session – ROYVLTY EMPIRE</title>
+  <style>
+    body {
+      background-image: url('studio-background.jpg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      background-color: rgba(0, 0, 0, 0.75);
+      max-width: 800px;
+      margin: 2em auto;
+      padding: 2em;
+      border-radius: 10px;
+    }
+    h1, h2 {
+      text-align: center;
+    }
+    select, input {
+      width: 100%;
+      padding: 10px;
+      margin: 1em 0;
+    }
+    .testimonials {
+      margin-top: 2em;
+      padding: 1em;
+      background: rgba(255, 255, 255, 0.1);
+    }
+    .btn {
+      background: gold;
+      border: none;
+      padding: 12px;
+      width: 100%;
+      font-size: 1em;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎧 Book a Session</h1>
+    <form id="bookingForm">
+      <label for="service">Select a Service:</label>
+      <select id="service" name="service">
+        <option value="">-- Choose Service --</option>
+        <option value="studio">In-Studio</option>
+        <option value="mobile">Mobile Studio</option>
+        <option value="mixing">Mixing & Mastering</option>
+        <option value="mastering">Mastering</option>
+        <option value="radio">Radio Edit</option>
+        <option value="consultation">Consultation</option>
+      </select>
+      <div id="dynamicFields"></div>
+
+      <div id="paypal-container" style="margin-top: 20px;"></div>
+    </form>
+
+    <div class="testimonials">
+      <h2>Why Choose ROYVLTY EMPIRE?</h2>
+      <ul>
+        <li>✅ Free Revisions – only on work done by ROYVLTY EMPIRE</li>
+        <li>✅ 9+ Years of Industry Experience</li>
+        <li>✅ Personalized, One-on-One Service</li>
+        <li>✅ Track record with B-list Labels & Recognized Artists</li>
+        <li>✅ Trusted by Industry Names, including Timbaland</li>
+      </ul>
+      <blockquote>“J Artist: ROYVLTY EMPIRE brought my vision to life. No cap!”</blockquote>
+    </div>
+  </div>
+
+  <script src="https://www.paypal.com/sdk/js?client-id=Af8Ijc-tqYAXVcpgiLj7vPFP3M0Fj51TV2s64Z-bt3Q1xCh6LD35lePNcezaZgJZU4xP23_cBrQzczUk&currency=USD"></script>
+  <script>
+    const dynamicFields = document.getElementById("dynamicFields");
+    const service = document.getElementById("service");
+
+    service.addEventListener("change", () => {
+      const value = service.value;
+      dynamicFields.innerHTML = "";
+
+      if (value === "studio") {
+        dynamicFields.innerHTML = `
+          <label>Studio Location:</label>
+          <select><option>SOTA STUDIOS</option><option>Married to the Game</option></select>
+          <label>Hours:</label>
+          <select>
+            <option>2 hrs – $100</option>
+            <option>3 hrs – $150</option>
+            <option>4 hrs – $200</option>
+            <option>5 hrs – $250</option>
+            <option>6 hrs – $300</option>
+          </select>
+        `;
+      } else if (value === "mobile") {
+        dynamicFields.innerHTML = `
+          <label>State:</label>
+          <select id="state">
+            <option>Florida</option><option>Georgia</option><option>Alabama</option>
+          </select>
+          <label>Address:</label><input type="text" placeholder="Enter address"/>
+        `;
+      } else if (value === "mixing") {
+        dynamicFields.innerHTML = `
+          <label>STEM Type:</label>
+          <select><option>WAV</option><option>MP3</option></select>
+          <label>Songs:</label>
+          <select>
+            <option>1 Song – $75</option>
+            <option>2 Songs – $150</option>
+            <option>3 Songs – $225</option>
+            <option>4 Songs – $300</option>
+            <option>5 Songs – $375</option>
+            <option>6 Songs – $450</option>
+          </select>
+        `;
+      } else if (value === "mastering") {
+        dynamicFields.innerHTML = `
+          <label>Songs:</label>
+          <select>
+            <option>1 Song – $50</option>
+            <option>2 Songs – $100</option>
+            <option>3 Songs – $150</option>
+            <option>4 Songs – $200</option>
+            <option>5 Songs – $250</option>
+            <option>6 Songs – $300</option>
+          </select>
+        `;
+      } else if (value === "radio") {
+        dynamicFields.innerHTML = `
+          <label>Songs:</label>
+          <select>
+            <option>1 Song – $100</option>
+            <option>2 Songs – $200</option>
+          </select>
+        `;
+      } else if (value === "consultation") {
+        dynamicFields.innerHTML = `
+          <label>Type:</label>
+          <select><option>Hourly</option><option>By Day</option></select>
+          <label>Hours or Days:</label>
+          <select>
+            <option>1 Hour – $100</option>
+            <option>2 Hours – $200</option>
+            <option>1 Day – $500</option>
+            <option>2 Days – $1000</option>
+          </select>
+        `;
+      }
+    });
+
+    paypal.Buttons({
+      createOrder: function(data, actions) {
+        return actions.order.create({
+          purchase_units: [{
+            amount: {
+              value: '100' // Placeholder for testing
+            }
+          }]
+        });
+      },
+      onApprove: function(data, actions) {
+        return actions.order.capture().then(function(details) {
+          alert('Transaction completed by ' + details.payer.name.given_name);
+          window.location.href = "/thank-you.html";
+        });
+      }
+    }).render('#paypal-container');
+  </script>
+</body>
+</html>
