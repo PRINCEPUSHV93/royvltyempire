@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book a Session – ROYVLTY EMPIRE</title>
+  <style>
+    body {
+      background-image: url('studio-background.jpg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      background-color: rgba(0, 0, 0, 0.75);
+      max-width: 800px;
+      margin: 2em auto;
+      padding: 2em;
+      border-radius: 10px;
+    }
+    h1, h2 {
+      text-align: center;
+    }
+    select, input {
+      width: 100%;
+      padding: 10px;
+      margin: 1em 0;
+    }
+    .btn {
+      background: gold;
+      border: none;
+      padding: 12px;
+      width: 100%;
+      font-size: 1em;
+      cursor: pointer;
+    }
+    .testimonials {
+      margin-top: 2em;
+      padding: 1em;
+      background: rgba(255, 255, 255, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎧 Book a Session</h1>
+    <form id="bookingForm" action="https://formsubmit.co/royvltylife@gmail.com" method="POST">
+      <input type="hidden" name="_next" value="thankyou.html">
+      <input type="hidden" name="_subject" value="New Booking Request - ROYVLTY EMPIRE">
+      <input type="hidden" name="_autoresponse" value="Thank you for booking with ROYVLTY EMPIRE! We’ll follow up shortly.">
+
+      <label for="email">Email:</label>
+      <input type="email" name="email" required>
+
+      <label for="phone">Phone Number:</label>
+      <input type="tel" name="phone" required>
+
+      <label for="service">Select a Service:</label>
+      <select name="service" required>
+        <option value="In-Studio">In-Studio</option>
+        <option value="Mobile Studio">Mobile Studio</option>
+        <option value="Mixing & Mastering">Mixing & Mastering</option>
+        <option value="Mastering">Mastering</option>
+        <option value="Radio Edit">Radio Edit</option>
+        <option value="Consultation">Consultation</option>
+      </select>
+
+      <label for="notes">Notes:</label>
+      <textarea name="notes" rows="4" placeholder="Add details like preferred date/time, location, number of songs, etc."></textarea>
+
+      <label for="payment">Select Payment Option:</label>
+      <select name="payment" required>
+        <option value="50%">Pay 50%</option>
+        <option value="100%">Pay 100%</option>
+      </select>
+
+      <input type="hidden" name="_template" value="table">
+
+      <button type="submit" class="btn">Submit & Proceed to PayPal</button>
+    </form>
+
+    <div class="testimonials">
+      <h2>Why Choose ROYVLTY EMPIRE?</h2>
+      <ul>
+        <li>✅ Free Revisions – only on work done by ROYVLTY EMPIRE</li>
+        <li>✅ 9+ Years of Industry Experience</li>
+        <li>✅ Personalized, One-on-One Service</li>
+        <li>✅ Track record with B-list Labels & Recognized Artists</li>
+        <li>✅ Trusted by Industry Names, including Timbaland</li>
+      </ul>
+      <blockquote>“J Artist: ROYVLTY EMPIRE brought my vision to life. No cap!”</blockquote>
+    </div>
+  </div>
+</body>
+</html>
