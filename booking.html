@@ -1,0 +1,190 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book a Session – ROYVLTY EMPIRE</title>
+  <style>
+    body {
+      background-image: url('studio-background.jpg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      background-color: rgba(0, 0, 0, 0.75);
+      max-width: 800px;
+      margin: 2em auto;
+      padding: 2em;
+      border-radius: 10px;
+    }
+    h1, h2 {
+      text-align: center;
+    }
+    select, input {
+      width: 100%;
+      padding: 10px;
+      margin: 1em 0;
+    }
+    .testimonials {
+      margin-top: 2em;
+      padding: 1em;
+      background: rgba(255, 255, 255, 0.1);
+    }
+    .btn {
+      background: gold;
+      border: none;
+      padding: 12px;
+      width: 100%;
+      font-size: 1em;
+      cursor: pointer;
+    }
+    nav {
+      background: black;
+      padding: 1em;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 1em;
+      color: gold;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="booking.html">Book Now</a>
+    <a href="contact.html">Contact</a>
+    <a href="services.html">Services</a>
+  </nav>
+
+  <div class="container">
+    <h1>🎧 Book a Session</h1>
+    <form id="bookingForm" action="https://formsubmit.co/royvltylife@gmail.com" method="POST">
+      <input type="hidden" name="_next" value="thankyou.html">
+      <input type="hidden" name="_subject" value="New Booking Received!">
+      <input type="hidden" name="_template" value="table">
+
+      <label for="service">Select a Service:</label>
+      <select id="service" name="service" required>
+        <option value="">-- Choose Service --</option>
+        <option value="studio">In-Studio</option>
+        <option value="mobile">Mobile Studio</option>
+        <option value="mixing">Mixing & Mastering</option>
+        <option value="mastering">Mastering</option>
+        <option value="radio">Radio Edit</option>
+        <option value="consultation">Consultation</option>
+      </select>
+
+      <input type="email" name="email" placeholder="Your Email" required />
+      <input type="tel" name="phone" placeholder="Your Phone Number" required />
+      <div id="dynamicFields"></div>
+
+      <label for="paymentOption">Select Payment Option:</label>
+      <select name="paymentOption" id="paymentOption">
+        <option value="50">Pay 50%</option>
+        <option value="100">Pay 100%</option>
+      </select>
+
+      <input type="hidden" id="totalAmount" name="Total Amount" value="100" />
+
+      <button type="submit" class="btn">Submit & Proceed to Pay</button>
+    </form>
+
+    <div class="testimonials">
+      <h2>Why Choose ROYVLTY EMPIRE?</h2>
+      <ul>
+        <li>✅ Free Revisions – only on work done by ROYVLTY EMPIRE</li>
+        <li>✅ 9+ Years of Industry Experience</li>
+        <li>✅ Personalized, One-on-One Service</li>
+        <li>✅ Track record with B-list Labels & Recognized Artists</li>
+        <li>✅ Trusted by Industry Names, including Timbaland</li>
+      </ul>
+      <blockquote>“J Artist: ROYVLTY EMPIRE brought my vision to life. No cap!”</blockquote>
+    </div>
+  </div>
+
+  <script>
+    const dynamicFields = document.getElementById("dynamicFields");
+    const service = document.getElementById("service");
+    const totalAmount = document.getElementById("totalAmount");
+    const paymentOption = document.getElementById("paymentOption");
+
+    const states = [
+      "Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida",
+      "Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland",
+      "Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire",
+      "New Jersey","New Mexico","New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania",
+      "Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington",
+      "West Virginia","Wisconsin","Wyoming"
+    ];
+
+    function updateTotal(baseAmount) {
+      const multiplier = parseInt(paymentOption.value) / 100;
+      totalAmount.value = baseAmount * multiplier;
+    }
+
+    service.addEventListener("change", () => {
+      const val = service.value;
+      dynamicFields.innerHTML = "";
+
+      if (val === "studio") {
+        dynamicFields.innerHTML = `
+          <label>Choose Studio Location:</label>
+          <select name="location">
+            <option>SOTA STUDIOS</option>
+            <option>Married to the Game Productions</option>
+          </select>
+          <label>Hours:</label>
+          <select name="hours" onchange="updateTotal(this.value * 50)">
+            ${[2,3,4,5,6].map(h => `<option value="${h}">${h} hrs – $${h*50}</option>`).join("")}
+          </select>
+          <label>Date:</label><input type="date" name="date" required>
+          <label>Time:</label><input type="time" name="time" required>
+        `;
+      }
+
+      if (val === "mobile") {
+        dynamicFields.innerHTML = `
+          <label>Select State:</label>
+          <select id="stateSelect" name="state">
+            ${states.map(state => `<option value="${state}">${state}</option>`).join("")}
+          </select>
+          <label>Address:</label>
+          <input name="address" placeholder="Enter valid address" required>
+          <div id="mobileOptions"></div>
+        `;
+
+        setTimeout(() => {
+          document.getElementById("stateSelect").addEventListener("change", function() {
+            const container = document.getElementById("mobileOptions");
+            if (this.value === "Florida") {
+              container.innerHTML = `
+                <label>Number of Songs:</label>
+                <select name="songs" onchange="updateTotal(this.value * 100)">
+                  ${[1,2,3,4,5,6].map(i => `<option value="${i}">${i} song – $${i*100}</option>`).join("")}
+                </select>
+                <label>Date:</label><input type="date" name="date" required>
+                <label>Time:</label><input type="time" name="time" required>
+              `;
+            } else {
+              container.innerHTML = `
+                <label>Number of Days:</label>
+                <select name="days" onchange="updateTotal(this.value * 300)">
+                  ${[1,2,3,4,5,6].map(i => `<option value="${i}">${i} Day – $${i*300}</option>`).join("")}
+                </select>
+                <label>Date:</label><input type="date" name="date" required>
+                <label>Time:</label><input type="time" name="time" required>
+              `;
+            }
+          });
+        }, 100);
+      }
+    });
+  </script>
+</body>
+</html>
